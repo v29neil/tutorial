@@ -24,15 +24,15 @@ class AddUserComponent extends Component {
 
   handleClick(e) {
     var t = this;
-    var data = {
-      name: this.state.name,
-      email: this.state.email,
-      hashed_password: this.state.password,
-      salt: this.state.salt,
-      __v: '0',
-      _id: new Date().getTime()
-    };
-    Utility.post('//104.155.216.156:8080/user', data, 'application/json', function (response) {
+    // var data = {
+    //   name: this.state.name,
+    //   email: this.state.email,
+    //   hashed_password: this.state.password,
+    //   salt: this.state.salt,
+    //   __v: '0',
+    //   _id: new Date().getTime()
+    // };
+    Utility.post('//104.155.216.156:8080/user', {"user":{"name":this.state.name,"email":this.state.email}}, 'application/json', function (response) {
       console.log(response);
       if (response) {
         //update ui in store
